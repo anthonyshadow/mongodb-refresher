@@ -20,7 +20,7 @@ const createProduct = async (req, res, next) => {
     price: req.body.price,
   });
   const result = await createdProduct.save();
-
+  console.log( typeof createdProduct._id) // turns object id into a string 
   res.json(result);
 };
 
