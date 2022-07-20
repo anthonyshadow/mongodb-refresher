@@ -11,7 +11,7 @@ mongoose
     console.log("connect to database");
   })
   .catch(() => {
-    console.log("connection failed")
+    console.log("connection failed");
   });
 
 const createProduct = async (req, res, next) => {
@@ -24,4 +24,10 @@ const createProduct = async (req, res, next) => {
   res.json(result);
 };
 
+const getProducts = async (req, res, next) => {
+  const products = await Product.find().exec(); // returns array by default in mongoose
+  res.json(products);
+};
+
 exports.createProduct = createProduct;
+exports.getProducts = getProducts;
